@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} Confirmação de Delete {% endblock %}
+
+{% block main %}
+
+    <h1>Tem certeza que deseja deletar {{ person.first_name }} {{ person.last_name }}?</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+
+    <br>
+
+<a href="{% url 'person_list' %}">Para voltar a lista</a>
+
+{% endblock %}
